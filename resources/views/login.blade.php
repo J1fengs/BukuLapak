@@ -1,6 +1,7 @@
 @extends('master')
 
-@section('login-content')
+@section('content')
+<div class="d-flex justify-content-lg-center align-items-center" style="height: 100vh">
 <form action="login" method="POST">
   @csrf
   <div class="mb-3">
@@ -16,4 +17,5 @@
   <button type="submit" class="btn btn-primary" class="">Login</button>
   </div>
 </form>
+</div>
 @endsection

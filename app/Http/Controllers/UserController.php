@@ -12,7 +12,7 @@ class UserController extends Controller
     {
         $user =  User::where(['email'=>$req->email])->first();
 
-        if(! $user || !Hash::check($req->password, $user->password))
+        if(!$user || !Hash::check($req->password, $user->password))
         {
             return "Incorrect";
         }

@@ -31,8 +31,17 @@ class ProductSeeder extends Seeder
                 'author' => 'David Haliday, etc',
                 'year' => '2019',
                 'price' => '1000000',
-                'type' => 'Physics Book',
+                'type' => 'Technology',
                 'gallery' => 'https://images-na.ssl-images-amazon.com/images/I/61XNp5uDK7L._SX258_BO1,204,203,200_.jpg'
+            ],
+            [
+                'title' => 'Data Science for Business',
+                'publisher' => '-',
+                'author' => 'Tom Fawcet',
+                'year' => '2013',
+                'price' => '1500000',
+                'type' => 'Technology',
+                'gallery' => 'https://images-na.ssl-images-amazon.com/images/I/71sExM98TWL.jpg'
             ]
         ]);
     }
