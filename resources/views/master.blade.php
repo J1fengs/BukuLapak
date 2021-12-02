@@ -14,12 +14,10 @@
 
 <body>
     {{-- {{View::make("navbar")}}    --}}
-    {{-- <div class="container" style="height: 100vh; width: 100vh">
-        <div class="d-flex justify-content-lg-center align-items-center">
+        <div class="d-flex justify-content-lg-center align-items-center" style="height: 100vh">
             @yield('login-content')
         </div>
-    </div> --}}
 
-    @yield('register')
+    {{-- @yield('register') --}}
 </body>
 </html>
