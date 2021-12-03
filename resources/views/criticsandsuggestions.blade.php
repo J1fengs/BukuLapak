@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <div class="mx-4 mt-5">
+    <div class="mx-4 mt-5" style="height: 100vh">
         <div class="row">
-            <div class="co6">
+            <div class="col-6">
                 <div class="d-flex justify-content-start">
                     <form class="" action="add" method="POST">
                         @csrf
@@ -21,31 +21,32 @@
                         <div class="container-contact100-form-btn">
                             <div class="wrap-contact100-form-btn">
                                 <div class="contact100-form-bgbtn"></div>
-                                <input type="submit" value="Register" class="contact100-form-btn">
+                                <input type="submit" value="Submit" class="contact100-form-btn">
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="col">
-
+            <div class="col-6">
+                <div class="overflow-scroll" style="height: 300px; width: 600px">
+                    <div class="overflow-x-hidden">
+                        @foreach ($critics as $item)
+                            <div class="row my-3 mx-3 d-flex align-items-center">
+                                <div class="col-1">
+                                    <i class="far fa-user-circle" style="transform: scale(2)"></i>
+                                </div>
+                                <div class="col-1 mx-3" style="background: #BDDAEB; width: 300px">
+                                    <h3>{{ $item['title'] }}</h3>
+                                    <p>{{ $item['contents'] }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-6">
-            @foreach ($critics as $item)
-                <div class="overflow-auto"></div>
-                <div class="col-1">
-                    <i class="far fa-user-circle"></i>
-                </div>
-                <div class="col-1">
-                    <h3>{{ $item['title'] }}</h3>
-                    <h3>{{ $item['contents'] }}</h3>
-                </div>
-        </div>
-        @endforeach
     </div>
-    </div>
-    </div>
+
 
     <style>
         * {
@@ -222,7 +223,7 @@
 
 
         /*//////////////////////////////////////////////////////////////////
-        [ Contact ]*/
+            [ Contact ]*/
 
         .container-contact100 {
             width: 100%;
@@ -248,7 +249,7 @@
 
 
         /*==================================================================
-        [ Form ]*/
+            [ Form ]*/
 
         .contact100-form {
             width: 100%;
@@ -267,7 +268,7 @@
 
 
         /*------------------------------------------------------------------
-        [ Input ]*/
+            [ Input ]*/
 
         .wrap-input100 {
             width: 100%;
@@ -303,8 +304,8 @@
             color: #43383e;
             line-height: 1.2;
             padding: 0 5px;
-            border: 1px solid #000;
-            border-radius: 30px;
+            border: 2px solid #000;
+            border-radius: 10px;
         }
 
 
@@ -322,7 +323,7 @@
 
 
         /*==================================================================
-        [ Restyle Checkbox ]*/
+            [ Restyle Checkbox ]*/
 
         .contact100-form-checkbox {
             padding-top: 12px;
@@ -376,7 +377,7 @@
 
 
         /*------------------------------------------------------------------
-        [ Button ]*/
+            [ Button ]*/
         .container-contact100-form-btn {
             display: -webkit-box;
             display: -webkit-flex;
@@ -391,7 +392,7 @@
             display: block;
             position: relative;
             z-index: 1;
-            border-radius: 31px;
+            border-radius: 21px;
             overflow: hidden;
         }
 
@@ -426,10 +427,12 @@
             min-width: 160px;
             height: 62px;
 
-            font-family: Oswald-Medium;
-            font-size: 16px;
+            /* font-family: Oswald-Medium; */
+            font-size: 30px;
+            font-weight: bold;
             color: #fff;
             line-height: 1.2;
+            background:linear-gradient(to right, rgba(3, 63, 139, 1), rgb(28, 76, 138), rgb(65, 115, 180), rgb(156, 173, 196));
         }
 
         .wrap-contact100-form-btn:hover .contact100-form-bgbtn {
@@ -437,12 +440,12 @@
         }
 
         /*------------------------------------------------------------------
-        [ Responsive ]*/
+            [ Responsive ]*/
 
 
 
         /*------------------------------------------------------------------
-        [ Alert validate ]*/
+            [ Alert validate ]*/
 
         .validate-input {
             position: relative;
