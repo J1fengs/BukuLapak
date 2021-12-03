@@ -23,6 +23,29 @@
 <body>
     {{View::make('navbar')}}
     @yield('content')
+
+    <style>
+    .trending-image{
+        height: 100px;
+    }
+    .trending-item{
+        float: left;
+        width: 20%;
+    }
+    .trending-wrapper{
+        margin: 30px;
+    }
+    .detail-img{
+        height: 200px;
+    }
+    .search-box{
+        width: 500px !important;
+    }
+    .cart-list-devider{
+        border-bottom: 2px solid #000;
+        margin-bottom: 20px;
+    }
+    </style>
 </body>
 
 </html>

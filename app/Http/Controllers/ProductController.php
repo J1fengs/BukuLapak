@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
 use Session;
+use Illuminate\Support\Facades\DB;
+
 
 class ProductController extends Controller
 {
@@ -49,5 +51,25 @@ class ProductController extends Controller
     {
         $userId = Session::get('user')['id'];
         return Cart::where('users_id', $userId)->count();
+    }
+
+    function cartList()
+    {
+        // return "COBA";
+        $userId = Session::get('user')['id'];
+
+        $products = DB::table('cart')
+        ->join('products', 'cart.products_id', '=', 'products.id')
+        ->where('cart.users_id', $userId)
+        ->select('products.*', 'cart.id as cart_id')
+        ->get();
+
+        return view('cartlist', ['products'=>$products]);
+    }
+
+    function removeCart($id)
+    {
+        Cart::destroy($id);
+        return redirect('cartlist');
     }
 }

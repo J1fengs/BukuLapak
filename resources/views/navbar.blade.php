@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\ProductController;
 $total = 0;
-if(Session::has('users'))
+if(Session::has('user'))
 {
     $total = ProductController::cartItem();
 }
@@ -67,6 +67,11 @@ if(Session::has('users'))
                     </form>
                 </div>
                 @if (Session::has('user'))
+                <a href="/cartlist">
+                    <i class="fas fa-shopping-cart">
+                        {{$total}}
+                    </i>
+                </a>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{Session::get('user')['username']}}
@@ -76,6 +81,7 @@ if(Session::has('users'))
                     </ul>
                 </li>    
                 @else
+                <i class="fas fa-shopping-cart">0</i>
                 <li><a href="/login">Login</a></li>
                 @endif
                 
