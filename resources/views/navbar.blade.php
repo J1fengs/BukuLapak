@@ -7,7 +7,7 @@ if(Session::has('user'))
 }
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg" style="background: #BDDAEB">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">BukuPedia</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -61,13 +61,18 @@ if(Session::has('user'))
                 </ul>
                 <div class="d-flex">
                     <form class="d-flex" action="/search">
+                        <button class="btn" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                             name="query">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
                 @if (Session::has('user'))
-                <a href="/cartlist">
+                <a href="#" class="mx-3">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a href="/cartlist" class="mx-3">
                     <i class="fas fa-shopping-cart">
                         {{$total}}
                     </i>
@@ -81,7 +86,8 @@ if(Session::has('user'))
                     </ul>
                 </li>    
                 @else
-                <i class="fas fa-shopping-cart">0</i>
+                <a href="#" class="mx-3"><i class="far fa-heart"></i></a>
+                <a href="/login" class="mx-3"><i class="fas fa-shopping-cart">0</i></a>
                 <li><a href="/login">Login</a></li>
                 @endif
                 

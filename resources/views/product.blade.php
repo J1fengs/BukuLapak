@@ -1,19 +1,44 @@
 @extends('master')
 
+@section('title')
+BukuLapak || Shop
+@endsection
+
 @section('content')
-
-
-    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+{{-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    @foreach ($products as $item)
+      <div class="carousel-item {{ $item['id']==1?"active":""}}">
+        <img src="{{ $item['gallery'] }}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+    @endforeach
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> --}}
+    <div class="container-fluid my-4 p-3" style="position: relative; ">
         <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
             @foreach ($products as $item)
                 <div class="col">
 
-                    <div class="card h-100 shadow-sm"><a href="detail/{{ $item['id'] }}"> <img
+                    <div class="card h-100 shadow-sm" style="background: #E9EFF0"><a href="detail/{{ $item['id'] }}"> <img
                                 src="{{ $item['gallery'] }}" class="card-img-top" alt="..."> </a>
                         <div class="card-body">
-                            <div class="clearfix mb-3"> <span
-                                    class="float-start badge rounded-pill bg-primary">{{ $item['type'] }}
-                                </span> <span class="float-end price-hp">Rp. {{ $item['price'] }}</span> </div>
+                            <div class="clearfix mb-3">
+                                <span class="badge rounded-pill" style="color: black">{{ $item['type'] }}
+                                </span>
+                                <span class="float-end price-hp">Rp. {{ $item['price'] }}</span>
+                            </div>
                             <h5 class="card-title">{{ $item['title'] }}</h5>
                             <div class="d-flex justify-content-end my-4">
                                 <form action="/add_to_cart" method="POST">
@@ -21,7 +46,12 @@
                                     <input type="hidden" name="products_id" value="{{ $item['id'] }}">
                                     <button class="btn"><i class="far fa-plus-square"></i></button>
                                 </form>
-                                <a href="#" class="mx-0"><i class="far fa-heart"></i></a>
+                                <form action="/add_to_wishlist" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="products_id" value="{{ $item['id'] }}">
+                                    <button class="btn"><i class="far fa-heart"></i></button>
+                                </form>
+                                {{-- <a href="#" class="mx-0"><i class="far fa-heart"></i></a> --}}
                             </div>
                         </div>
                     </div>
@@ -266,6 +296,5 @@
             height: 80px;
             color: #fff
         }
-
-    </style>
+</style>
 @endsection

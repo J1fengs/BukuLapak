@@ -64,7 +64,7 @@ class ProductController extends Controller
         ->select('products.*', 'cart.id as cart_id')
         ->get();
 
-        return view('cartlist', ['products'=>$products]);
+        return view('cartlist', ['products'=>$products], ['products_price'=>$priceTotal]);
     }
 
     function removeCart($id)
@@ -72,4 +72,13 @@ class ProductController extends Controller
         Cart::destroy($id);
         return redirect('cartlist');
     }
+    // function totalPrice()
+    // {
+    //     // return "COBA";
+    //     $userId = Session::get('user')['id'];
+
+        
+
+    //     return view('cartlist', ['products'=>$price]);
+    // }
 }

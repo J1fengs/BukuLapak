@@ -1,32 +1,55 @@
 @extends('master')
 
+@section('title')
+BukuLapak || Cart
+@endsection
+
 @section('content')
-<div class="d-flex">
-    <div class="justify-content-lg-center align-items-center">
-        <div class="col-sm-10">
-            <div class="trending-wrapper">
-                <h4>Result for Products</h4>
-                <a class="btn btn-success" href="ordernow">Order Now</a> <br> <br>
-                @foreach($products as $item)
-                <div class=" row searched-item cart-list-devider">
-                <div class="col-sm-3">
-                    <a href="detail/{{$item->id}}">
-                        <img class="trending-image" src="{{$item->gallery}}">
-                    </a>
-                </div>
-                <div class="col-sm-4">
-                        <div class="">
-                        <h2>{{$item->title}}</h2>
+    <div class="d-flex justify-content-center align-items-center">
+                <div class="trending-wrapper">
+                    @php $total=0 @endphp
+                    <div class=" row searched-item cart-list-devider">
+                        <div class="col d-flex align-items-center">
+                            <h3>Foto Buku</h3>
                         </div>
+                        <div class="col d-flex align-items-center">
+                            <h3>Judul Buku</h3>
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <h3>Harga</h3>
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <h3>Hapus</h3>
+                        </div>
+                    </div>
+                    @foreach ($products as $item)
+                        <div class=" row searched-item cart-list-devider">
+                            <div class="col d-flex align-items-center">
+                                <a href="detail/{{ $item->id }}">
+                                    <img class="trending-image" src="{{ $item->gallery }}">
+                                </a>
+                            </div>
+                            <div class="col d-flex align-items-center">
+                                <div class="">
+                                    <h6>{{ $item->title }}</h6>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-center">
+                                <h4>Rp. {{ $item->price }}</h4>
+                            </div>
+                            <div class="col d-flex align-items-center">
+                                <a href="/removecart/{{ $item->cart_id }}" class="btn"><i
+                                        class="fas fa-times-circle" style="color: red; transform: scale(2)"></i></a>
+                            </div>
+                        </div>
+                        @php $total += $item->price @endphp
+                    @endforeach
+                    <h4>Total Pembayaran</h4>
+                    <h2>Rp. {{ $total }}</h2>
+                    <div class="d-flex justify-content-center flex-column">
+                        <a class="btn" href="ordernow"
+                            style="background:rgba(2, 62, 138, 1); border-radius: 40px; font-weight: bold; color: white!important; letter-spacing: 5px; font-size: 30px">Bayar</a>
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <a href="/removecart/{{$item->cart_id}}" class="btn btn-warning" >Remove to Cart</a>
-                </div>
-                </div>
-                @endforeach
-            </div>
-            <a class="btn btn-success" href="ordernow">Order Now</a> <br> <br>
-        </div>
     </div>
-</div>
 @endsection

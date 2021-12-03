@@ -42,6 +42,24 @@ class ProductSeeder extends Seeder
                 'price' => '1500000',
                 'type' => 'Technology',
                 'gallery' => 'https://images-na.ssl-images-amazon.com/images/I/71sExM98TWL.jpg'
+            ],
+            [
+                'title' => 'Persamaan Differensial',
+                'publisher' => '-',
+                'author' => 'Siti Saillah',
+                'year' => '2019',
+                'price' => '61200',
+                'type' => 'Technic',
+                'gallery' => 'https://www.belbuk.com/images/products/buku/komputer--internet/teknik--ilmu-komputer/5c5d5faba9a641.22714832m.jpg'
+            ],
+            [
+                'title' => 'Matematika Terapan',
+                'publisher' => 'Andi',
+                'author' => 'Siti Sailah',
+                'year' => '2019',
+                'price' => '121500',
+                'type' => 'Technic',
+                'gallery' => 'https://www.belbuk.com/images/products/buku/teknik--ilmu-pengetahuan/matematika--ipa/Matematika-Terapan-5dc11f1c3a551m.jpg'
             ]
         ]);
     }

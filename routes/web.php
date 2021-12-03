@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\UserController;
 Use App\Http\Controllers\ProductController;
+Use App\Http\Controllers\CriticsandSuggestionsController;
 // Use Session;
 
 /*
@@ -35,5 +36,11 @@ Route::get("/", [ProductController::class, "index"]);
 Route::get("detail/{id}", [ProductController::class, "detail"]);
 Route::get("/search", [ProductController::class, "search"]);
 Route::post("add_to_cart", [ProductController::class, "add_to_cart"]);
-Route::get("/cartlist", [ProductController::class, "cartList"]);
+Route::get("/cartlist", [ProductController::class, "cartList", "totalPrice"]);
 Route::get("removecart/{id}", [ProductController::class, "removeCart"]);
+// Route::get("ordernow", [ProductController::class, "totalPrice"]);
+Route::view('/signup', 'signup');
+Route::post("/signup", [UserController::class, "signup"]);
+
+Route::get('criticsandsuggestions', [CriticsandSuggestionsController::class, 'index']);
+Route::post('add', [CriticsandSuggestionsController::class, 'add']);

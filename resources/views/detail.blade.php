@@ -1,5 +1,9 @@
 @extends('master')
 
+@section('title')
+BukuLapak || Detail dan Produk
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -11,6 +15,7 @@
             <h2>{{ $products['title'] }}</h2>
             <h3>Price : Rp. {{ $products['price'] }}</h3>
             <h3>Year : {{ $products['year'] }}</h3>
+            <h3>Id : {{ $products['id'] }}</h3>
         </div>  
     </div>
 </div>
