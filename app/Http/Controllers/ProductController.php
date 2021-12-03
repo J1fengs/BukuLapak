@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
-use \Illuminate\Session;
+use Session;
 
 class ProductController extends Controller
 {
@@ -45,9 +45,9 @@ class ProductController extends Controller
         }
     }
 
-    // static function cartItem() FOR GETTING CART TOTAL
-    // {
-    //     $userId = Session::get('user')['id'];
-    //     return Cart::where('users_id', $userId)->count();
-    // }
+    static function cartItem() //FOR GETTING CART TOTAL
+    {
+        $userId = Session::get('user')['id'];
+        return Cart::where('users_id', $userId)->count();
+    }
 }
