@@ -111,7 +111,8 @@ if(Session::has('user'))
                 @else
                 <a href="#" class="mx-3"><i class="far fa-heart"></i></a>
                 <a href="/login" class="mx-3"><i class="fas fa-shopping-cart">0</i></a>
-                <li><a href="/login">Login</a></li>
+                <a href="/login" class="mx-3">Login</a>
+                <a href="/signup" class="mx-3">Sign Up</a>
                 @endif
                 
             </div>

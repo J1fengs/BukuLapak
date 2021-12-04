@@ -47,54 +47,96 @@
             <h4>Total Pembayaran</h4>
             <h2>Rp. {{ $total }}</h2>
             <div class="d-flex justify-content-center flex-column">
-                <a class="btn" href="ordernow"
-                    style="background:rgba(2, 62, 138, 1); border-radius: 40px; font-weight: bold; color: white!important; letter-spacing: 5px; font-size: 30px">Bayar</a>
+                <button onclick="tooglePayment()" class="btn" href="ordernow"
+                    style="background:rgba(2, 62, 138, 1); border-radius: 40px; font-weight: bold; color: white!important; letter-spacing: 5px; font-size: 20px">Bayar</button>
             </div>
         </div>
     </div>
 
-    <div class="position-absolute payment-card" style="z-index: 10000">
+    <div class="position-absolute payment-card" style="z-index: 10000" id="card">
         <div class="card">
-            <div class="card-header text-center">
-                PEMBAYARAN
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-11">
+                        <div class="text-center">
+                            PEMBAYARAN
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <a class="btn" onclick="tooglePayment()"><i class="fas fa-times-circle"
+                                style="color: red; transform: scale(2)"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <form method="POST">
                     <div class="mb-5 d-flex justify-content-lg-center align-items-center">
-                      <i class="fas fa-shopping-cart" style="transform: scale(3); color: #fff"></i>
+                        <i class="fas fa-shopping-cart" style="transform: scale(3); color: #fff"></i>
                     </div>
                     <div class="mb-3">
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">
-                          <i class="far fa-user"></i>
-                        </span>
-                        <input type="email" class="form-control form-custom" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email">
-                      </div>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <input type="email" class="form-control form-custom" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Alamat" name="Alamat">
+                        </div>
                     </div>
                     <div class="mb-3">
-                      <div class="input-group">
-                        <span class="input-group-text" id="inputGroupPrepend">
-                          <i class="far fa-lock"></i>
-                        </span>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-                      </div>
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroupPrepend">
+                                <i class="fas fa-code"></i>
+                            </span>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Postal Code" name="PostalCode">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text" id="inputGroupPrepend">
+                                <i class="fas fa-book-open"></i>
+                            </span>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Description" name="description">
+                        </div>
                     </div>
                     <div class="mb-3 form-check d-flex justify-content-lg-end">
-                      <a href="">Lupa Password?</a>
+                        <h4>Metode Pembayaran</h4>
                     </div>
-                    <div class="mb-3 d-flex justify-content-center">
-                      <button type="submit" class="btn btn-light login-button">Login</button>
+                    <div class="row">
+                        <div class="col-4">
+                            <h5><a href="#">Bank</a></h5>
+                        </div>
+                        <div class="col-4">
+                            <h5><a href="#">Indomaret</a></h5>
+                        </div>
+                        <div class="col-4">
+                            <h5><a href="#">Ovo</a></h5>
+                        </div>
                     </div>
-                  </form>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                </form>
+                <div class="d-flex justify-content-center">
+                    <a href="#" class="btn payment-button">
+                        <h4>Bayar</h4>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <style>
         .payment-card {
-            top: 40%;
+            top: 10%;
             left: 34%;
+            /* opacity: 0; */
+            display: none;
+        }
+
+        .payment-card.active {
+            /* opacity: 1!important; */
+            display: block;
         }
 
         .card-header {
@@ -102,5 +144,23 @@
             color: #fff;
         }
 
+        .payment-button {
+            width: 80%;
+            background: linear-gradient(45deg, rgba(176, 210, 217, 1) 0%, rgba(0, 90, 110, 1) 43%, rgba(1, 59, 74, 1) 71%);
+            padding-top: 20px
+        }
+
+        .payment-button h4 {
+            color: white;
+        }
+
     </style>
+
+    <script>
+        function tooglePayment() {
+            var element = document.getElementById("card");
+            element.classList.toggle("active");
+            console.log("toogle payment masuk");
+        }
+    </script>
 @endsection
