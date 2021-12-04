@@ -9,7 +9,7 @@ if(Session::has('user'))
 
 <nav class="navbar navbar-expand-lg" style="background: #BDDAEB">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">BukuPedia</a>
+            <a class="navbar-brand" href="#">Bukulapak</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
