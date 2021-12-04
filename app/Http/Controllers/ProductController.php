@@ -64,7 +64,7 @@ class ProductController extends Controller
         ->select('products.*', 'cart.id as cart_id')
         ->get();
 
-        return view('cartlist', ['products'=>$products], ['products_price'=>$priceTotal]);
+        return view('cartlist', ['products'=>$products]);
     }
 
     function removeCart($id)

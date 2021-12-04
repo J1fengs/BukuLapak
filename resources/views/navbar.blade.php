@@ -82,7 +82,30 @@ if(Session::has('user'))
                         {{Session::get('user')['username']}}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        <div class="text-center card-box">
+                            <div class="member-card pt-2 pb-2">
+                                <i class="far fa-user-circle" style="transform: scale(2)"></i>
+                                <div class="">
+                                    <h4>{{Session::get('user')['username']}}</h4>
+                                </div>                            
+                                <div class="mt-4">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mt-3">
+                                                <h4>Name</h4>
+                                                <p class="mb-0 mx-1 text-muted">{{ Session::get('user')['username'] }}</p>
+                                                <h4>Email</h4>
+                                                <p class="mb-0 mx-1 text-muted">{{ Session::get('user')['email'] }}</p>
+                                                <h4>Phone</h4>                                            
+                                                <p class="mb-0 mx-1 text-muted">{{ Session::get('user')['phone'] }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light"><a href="/logout">Logout</a></button>
+                                <a href="/critics" style="list-style: underscores">Kritik dan Saran</a>
+                            </div>
+                        </div>
                     </ul>
                 </li>    
                 @else
@@ -98,5 +121,51 @@ if(Session::has('user'))
 <style>
 li{
     list-style: none;
+}
+.card-box {
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.social-links li a {
+    border-radius: 50%;
+    color: rgba(121, 121, 121, .8);
+    display: inline-block;
+    height: 30px;
+    line-height: 27px;
+    border: 2px solid rgba(121, 121, 121, .5);
+    text-align: center;
+    width: 30px
+}
+
+.social-links li a:hover {
+    color: #797979;
+    border: 2px solid #797979
+}
+.thumb-lg {
+    height: 88px;
+    width: 88px;
+}
+.img-thumbnail {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+}
+.text-pink {
+    color: #ff679b!important;
+}
+.btn-rounded {
+    border-radius: 2em;
+}
+.text-muted {
+    color: #98a6ad!important;
+}
+h4 {
+    line-height: 22px;
+    font-size: 18px;
 }
 </style>

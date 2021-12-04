@@ -30,6 +30,10 @@ Route::get('/logout', function (){
     return redirect('login');
 });
 
+Route::get('/critics', function () {
+    return view('criticsandsuggestions');
+});
+
 
 Route::post("/login", [UserController::class, "login"]);
 Route::get("/", [ProductController::class, "index"]);
