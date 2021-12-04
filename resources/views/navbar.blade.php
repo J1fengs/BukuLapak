@@ -103,8 +103,8 @@ if(Session::has('user'))
                                     </div>
                                 </div>
                                 <button type="button" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light"><a href="/logout">Logout</a></button>
-                                <a href="/critics" style="list-style: underscores">Kritik dan Saran</a>
                             </div>
+                            <a href="/critics">Kritik dan Saran</a>
                         </div>
                     </ul>
                 </li>    
@@ -168,5 +168,8 @@ li{
 h4 {
     line-height: 22px;
     font-size: 18px;
+}
+.dropdown-menu[data-bs-popper]{
+    left: -98px !important;
 }
 </style>

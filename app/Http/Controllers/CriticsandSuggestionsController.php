@@ -30,7 +30,7 @@ class CriticsandSuggestionsController extends Controller
         }
         else
         {
-            return alert('Something went wrong');
+            return 'Something went wrong';
         }
     }
 }

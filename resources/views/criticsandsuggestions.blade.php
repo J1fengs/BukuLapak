@@ -23,7 +23,7 @@
                                 <div class="contact100-form-bgbtn"></div>
                                 <input type="submit" value="Submit" class="contact100-form-btn">
                             </div>
-                        </div>
+                        </div>  
                     </form>
                 </div>
             </div>

@@ -46,5 +46,5 @@ Route::get("removecart/{id}", [ProductController::class, "removeCart"]);
 Route::view('/signup', 'signup');
 Route::post("/signup", [UserController::class, "signup"]);
 
-Route::get('criticsandsuggestions', [CriticsandSuggestionsController::class, 'index']);
+Route::get('/critics', [CriticsandSuggestionsController::class, 'index']);
 Route::post('add', [CriticsandSuggestionsController::class, 'add']);
