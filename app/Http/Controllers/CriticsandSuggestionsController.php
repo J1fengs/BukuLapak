@@ -26,7 +26,7 @@ class CriticsandSuggestionsController extends Controller
         ]);
         if($crit)
         {
-            return redirect('criticsandsuggestions');
+            return redirect('/critics');
         }
         else
         {
